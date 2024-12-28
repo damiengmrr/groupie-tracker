@@ -4,6 +4,6 @@ import (
 	g "groupie-tracker/backgo"
 )
 
-func Main(){
+func main(){
 	g.Web()
 }
