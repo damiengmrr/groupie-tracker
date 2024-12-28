@@ -1,9 +1,7 @@
-<<<<<<< HEAD
 package main
 
-func main(){
-	w.Web()
+import "backgo"
+
+func Main(){
+	Web()
 }
-=======
-package main
->>>>>>> main
