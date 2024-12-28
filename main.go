@@ -1,7 +1,9 @@
 package main
 
-import "backgo"
+import (
+	g "groupie-tracker/backgo"
+)
 
 func Main(){
-	Web()
+	g.Web()
 }
