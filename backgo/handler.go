@@ -17,3 +17,4 @@ func RenderTemplate(w http.ResponseWriter, html string) {
 func Home(w http.ResponseWriter, r *http.Request){
 	RenderTemplate(w, "home")
 }
+
