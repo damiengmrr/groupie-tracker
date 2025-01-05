@@ -11,7 +11,7 @@ import (
 )
 
 func main(){
-	response, err := http.Get("https://groupietrackers.herokuapp.com/api/artists")
+	response, err := http.Get("https://groupietrackers.herokuapp.com/api")
 	if err != nil {
         fmt.Print(err.Error())
         os.Exit(1)
