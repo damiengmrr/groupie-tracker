@@ -1,6 +1,7 @@
 package backgo
 
 import (
+	// "encoding/json"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
@@ -39,6 +40,8 @@ type locations struct {
 	ConcertCityLocations []string
 }
 
+var responseObject []artists
+
 func GetAPI(){
 	response, err := http.Get("https://groupietrackers.herokuapp.com/api/artists")
 	if err != nil {
@@ -51,15 +54,9 @@ func GetAPI(){
         log.Fatal(err)
     }
 
-	var responseObject artists
 	json.Unmarshal(responseData, &responseObject)
 
-
-    fmt.Println(responseObject.Name)
-    fmt.Println(len(responseObject.Pokemon))
-
-    for i := 0; i < len(responseObject.Pokemon); i++ {
-        fmt.Println(responseObject.Pokemon[i].Species.Name)
-    }
-
+    fmt.Println(responseObject[0].Name)
+	//fmt.Println(string(responseData))
 }
+

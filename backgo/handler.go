@@ -11,7 +11,7 @@ func RenderTemplate(w http.ResponseWriter, html string) {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
-	t.Execute(w,nil)
+	t.Execute(w,responseObject)
 }
 
 func Home(w http.ResponseWriter, r *http.Request){
