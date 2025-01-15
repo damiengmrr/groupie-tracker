@@ -56,7 +56,7 @@ func GetAPI(){
 
 	json.Unmarshal(responseData, &responseObject)
 
-    fmt.Println(responseObject[0].Name)
+    fmt.Println(responseObject[0])
 	//fmt.Println(string(responseData))
 }
 
