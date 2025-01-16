@@ -9,6 +9,9 @@ import (
 	"net/http"
 	"os"
 )
+type List struct {
+	Lists []artists
+}
 
 type artists struct {
 	Id		int			`json:"id"`
@@ -56,7 +59,7 @@ func GetAPI(){
 
 	json.Unmarshal(responseData, &responseObject)
 
-    fmt.Println(responseObject[0])
+    fmt.Println(responseObject[7].Name)
 	//fmt.Println(string(responseData))
 }
 
