@@ -6,9 +6,21 @@
     <title>Document</title>
 </head>
 <body>
-   <div class = "grille">
+    <!-- <form action="/home" method="post">
+        <label for="agree">
+            <input type="checkbox" id="filtre-checkbox" name="filtre">
+        </label>
+        <p>Filtrage</p>
+    </form> -->
+    <form method="POST" action= "/input">
+        <label for = "LettreInput">
+        <input name = "RechercheArtiste" type="text" placeholder="Recherchez vos artistes" required id="ArtistInput">
+        <button type="submit">Rechercher</button>
+    </form>
+    <div class = "grille">
     {{ range .Lists}}
     <h1>{{.Name}}</h1>
+    <h2>{{.CreationDate}}</h2>
     <form action="/artists" method="get">
     <button name = "id" id = "artists-button" value = "{{.Id}}" type="submit"> Voir</button>
         <img src="{{.Image}}" alt="Artist Image">
