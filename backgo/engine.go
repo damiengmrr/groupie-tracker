@@ -1,14 +1,5 @@
 package backgo
 
-import (
-	// "encoding/json"
-	"encoding/json"
-	"fmt"
-	"io/ioutil"
-	"log"
-	"net/http"
-	"os"
-)
 type List struct {
 	Lists []artists
 }
@@ -43,23 +34,4 @@ type locations struct {
 	ConcertCityLocations []string
 }
 
-var responseObject []artists
-
-func GetAPI(){
-	response, err := http.Get("https://groupietrackers.herokuapp.com/api/artists")
-	if err != nil {
-        fmt.Print(err.Error())
-        os.Exit(1)
-    }
-
-    responseData, err := ioutil.ReadAll(response.Body)
-    if err != nil {
-        log.Fatal(err)
-    }
-
-	json.Unmarshal(responseData, &responseObject)
-
-    fmt.Println(responseObject[7].Name)
-	//fmt.Println(string(responseData))
-}
 
