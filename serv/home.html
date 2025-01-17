@@ -10,7 +10,9 @@
     {{ range .Lists}}
     <h1>{{.Name}}</h1>
     <h2>{{.CreationDate}}</h2>
-<img src="{{.Image}}" alt="Artist Image">
+    <button style="border: none; padding: 0; background: none;">
+        <img src="{{.Image}}" alt="Artist Image">
+    </button>
     {{ end}}
     </div>
 </body>
