@@ -9,7 +9,7 @@ import (
 	"os"
 	"strconv"
 	"text/template"
-	"time"
+	// "time"
 )
 
 func Home(w http.ResponseWriter, r *http.Request){
@@ -60,8 +60,7 @@ func Artists(w http.ResponseWriter, r *http.Request){
 	t.Execute(w,GroupList[id-1])
 }
 
-func Filter(){
-	var DateConcerts dates
-	parsedTime, _ := time.Parse(r.FormValue("dates"))
+// func Filter(){
+// 	parsedTime, _ := time.Parse(r.FormValue("dates"))
 
-}
+// }
