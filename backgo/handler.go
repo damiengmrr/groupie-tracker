@@ -9,6 +9,7 @@ import (
 	"os"
 	"strconv"
 	"text/template"
+	"time"
 )
 
 func Home(w http.ResponseWriter, r *http.Request){
@@ -40,7 +41,7 @@ func Artists(w http.ResponseWriter, r *http.Request){
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
-	
+
 	response, err := http.Get("https://groupietrackers.herokuapp.com/api/artists")
 	if err != nil {
         fmt.Print(err.Error())
@@ -55,9 +56,12 @@ func Artists(w http.ResponseWriter, r *http.Request){
 	var GroupList []artists
 	json.Unmarshal(responseData, &GroupList)
 
-
-
-	
 	id, _ := strconv.Atoi(r.FormValue("id"))
 	t.Execute(w,GroupList[id-1])
+}
+
+func Filter(){
+	var DateConcerts dates
+	parsedTime, _ := time.Parse(r.FormValue("dates"))
+
 }
