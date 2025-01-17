@@ -1,6 +1,6 @@
 package backgo
 
-type List struct {
+type list struct {
 	Lists []artists
 }
 

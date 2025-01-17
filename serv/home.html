@@ -9,10 +9,11 @@
    <div class = "grille">
     {{ range .Lists}}
     <h1>{{.Name}}</h1>
-    <h2>{{.CreationDate}}</h2>
-    <button style="border: none; padding: 0; background: none;">
+    <form action="/artists" method="get">
+    <button name = "id" id = "artists-button" value = "{{.Id}}" type="submit"> Voir</button>
         <img src="{{.Image}}" alt="Artist Image">
     </button>
+    </form>
     {{ end}}
     </div>
 </body>
