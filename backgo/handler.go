@@ -52,7 +52,7 @@ func Artists(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Fatal(err)
 	}
-
+	
 	var GroupList []artists
 	json.Unmarshal(responseData, &GroupList)
 
