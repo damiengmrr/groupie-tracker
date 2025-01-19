@@ -12,11 +12,38 @@
         </label>
         <p>Filtrage</p>
     </form> -->
-    <form method="POST" action= "/input">
+
+
+    <form method="POST" action= "/home">
         <label for = "LettreInput">
-        <input name = "RechercheArtiste" type="text" placeholder="Recherchez vos artistes" required id="ArtistInput">
+        <input name = "RechercheArtiste" type="text" required id="ArtistInput">
         <button type="submit">Rechercher</button>
     </form>
+
+    <!-- <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Tapez votre recherche..." onkeyup="search()">
+        <div id="results"></div>
+    </div>
+     -->
+    <!-- <script>
+        function search() {
+            const query = document.getElementById('searchInput').value;
+            if (query.length > 0) {
+                const xhr = new XMLHttpRequest();
+                xhr.open('GET', 'search.php?q=' + encodeURIComponent(query), true);
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        document.getElementById('results').innerHTML = xhr.responseText;
+                    }
+                };
+                xhr.send();
+            } else {
+                document.getElementById('results').innerHTML = '';
+            }
+        }
+    </script> -->
+
+
     <div class = "grille">
     {{ range .Lists}}
     <h1>{{.Name}}</h1>
