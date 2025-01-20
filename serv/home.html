@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="home.css">
+    <title>Home</title>
+</head>
+<body>
+    <header>
+        <h1>Groupie Tracker</h1>
+        <p>Discover your favorite artists and their upcoming events!</p>
+       <!-- <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#artists">Artists</a></li>
+                <li><a href="#locations">Locations</a></li>
+                <li><a href="#dates">Dates</a></li>
+            </ul>
+        </nav> -->
+    </header>
+    <main>
+        <section id="home">
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#artists">Artists</a></li>
+                    <li><a href="#locations">Locations</a></li>
+                    <li><a href="#dates">Dates</a></li>
+                </ul>
+            </nav>
+        </section>
+        <section id="artists">
+            <h2>Featured Artists</h2>
+            <div class="grille">
+                {{ range .Lists}}
+                <div class="artist">
+                    <h3>{{.Name}}</h3>
+                    <p>Formed in {{.CreationDate}}</p>
+                    <button>
+                        <img src="{{.Image}}" alt="{{.Name}}">
+                    </button>
+                </div>
+                {{ end}}
+            </div>
+        </section>
+
+        <section id="locations">
+            <h2>Concert Locations</h2>
+            <!-- Add content for locations here -->
+        </section>
+
+        <section id="dates">
+            <h2>Upcoming Dates</h2>
+            <!-- Add content for dates here -->
+        </section>
+    </main>
+<!--
+   <div class = "grille">
+    {{ range .Lists}}
+    <h1>{{.Name}}</h1>
+    <h2>{{.CreationDate}}</h2>
+    <button style="border: none; padding: 0; background: none;">
+        <img src="{{.Image}}" alt="Artist Image">
+    </button>
+    {{ end}}
+    </div> -->
+    <footer>
+        <p>&copy; 2024 Groupie Tracker</p>
+    </footer>
+</body>
+</html>
