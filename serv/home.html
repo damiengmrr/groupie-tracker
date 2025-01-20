@@ -4,94 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        .grid-item {
-            margin: 10px 0;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        .no-results {
-            display: none;
-            color: red;
-        }
-    </style>
 </head>
 <body>
-
-    <form action="/home" method="post">
-        <label for="filtre-checkbox">
-            <input type="checkbox" id="filtre-checkbox" name="filtre"> Filtrage
+    <!-- <form action="/home" method="post">
+        <label for="agree">
+            <input type="checkbox" id="filtre-checkbox" name="filtre">
         </label>
+        <p>Filtrage</p>
+    </form> -->
+
+
+    <form method="POST" action= "/input">
+        <label for = "LettreInput">
+        <input name = "RechercheArtiste" type="text" required id="ArtistInput">
+        <button type="submit">Rechercher</button>
     </form>
 
-    <label for="filter-name">Nom</label>
-    <input type="text" id="filter-name" class="sidebar-input" placeholder="Rechercher..." />
-
-    <button id="sort-asc" onclick="sortByDate('asc')">Trier par date (ancien au récent)</button>
-    <button id="sort-desc" onclick="sortByDate('desc')">Trier par date (récent au ancien)</button>
-
-    <p class="no-results">Aucun résultat trouvé.</p>
-
-    <div class="grille">
-        {{ range .Lists }}
-        <div class="grid-item"
-             data-title="{{ .Name }}"
-             data-creationdate="{{ .CreationDate }}"
-             data-members="{{ len .Members }}">
-            <h1>{{.Name}}</h1>
-            <h2>{{.CreationDate}}</h2>
-            <form action="/artists" method="get">
-                <button name="id" id="artists-button" value="{{.Id}}" type="submit">Voir</button>
-            </form>
-            <img src="{{.Image}}" alt="Artist Image">
-        </div>
-        {{ end }}
-    </div>
-
-    <script>
-        const filterName = document.getElementById('filter-name');
-        const items = document.querySelectorAll('.grid-item');
-        const noResults = document.querySelector('.no-results');
-
-        function applyFilter() {
-            const nameValue = filterName.value.toLowerCase();
-            let hasResults = false;
-
-            items.forEach(item => {
-                const itemTitle = item.getAttribute('data-title').toLowerCase();
-                let showItem = true;
-
-                if (nameValue && !itemTitle.includes(nameValue)) {
-                    showItem = false;
-                }
-
-                item.style.display = showItem ? "block" : "none";
-                if (showItem) hasResults = true;
-            });
-
-            noResults.style.display = hasResults ? "none" : "block";
-        }
-
-        filterName.addEventListener('input', applyFilter);
-        
-        function sortByDate(order = 'asc') {
-            const sortedItems = Array.from(items).sort((a, b) => {
-                const dateA = new Date(a.getAttribute('data-creationdate'));
-                const dateB = new Date(b.getAttribute('data-creationdate'));
-
-                if (order === 'asc') {
-                    return dateA - dateB;
-                } else {
-                    return dateB - dateA;
-                }
-            });
-
-            const grid = document.querySelector('.grille');
-            grid.innerHTML = '';
-            sortedItems.forEach(item => grid.appendChild(item));
-        }
-    </script>
-
+    <div class = "grille">
+    {{ range .Lists}}
+    <h1>{{.Name}}</h1>
+    <h2>{{.CreationDate}}</h2>
+    <form action="/artists" method="get">
+    <button name = "id" id = "artists-button" value = "{{.Id}}" type="submit"> Voir</button>
+        <img src="{{.Image}}" alt="Artist Image">
+    </button>
+    </form>
+    {{ end}}
 </body>
 </html>

@@ -8,7 +8,7 @@ import (
 	"net/http"
 	"os"
 	"strconv"
-	// "strings"
+	"strings"
 	"text/template"
 	// "time"
 )
@@ -60,30 +60,16 @@ func Artists(w http.ResponseWriter, r *http.Request) {
 	t.Execute(w, GroupList[id-1])
 }
 
-// func SearchBar(w http.ResponseWriter, r *http.Request) {
-// 	t, err := template.ParseFiles("./serv/home.html")
-// 	if err != nil {
-// 		http.Error(w, err.Error(), http.StatusInternalServerError)
-// 		return
-// 	}
 
-// 	response, err := http.Get("https://groupietrackers.herokuapp.com/api/artists")
-// 	if err != nil {
-// 		fmt.Print(err.Error())
-// 		os.Exit(1)
-// 	}
+func applyFilter(items []Item, filter string) []Item {
+	var filteredItems []Item
+	filter = strings.ToLower(filter)
 
-// 	responseData, err := ioutil.ReadAll(response.Body)
-// 	if err != nil {
-// 		log.Fatal(err)
-// 	}
-// 	var GroupList list
-// 	json.Unmarshal(responseData, &GroupList.Lists)
+	for _, item := range items {
+		if strings.Contains(strings.ToLower(item.Title), filter) {
+			filteredItems = append(filteredItems, item)
+		}
+	}
 
-// 	InputArtist := r.FormValue("RechercheArtiste")
-
-// 	if strings.Contains(GroupList.Lists[id].Name, InputArtist) {
-// 		t.Execute(w, GroupList.Lists[id].Name)
-// 		fmt.Print("GG")
-// 	}
-// }
+	return filteredItems
+}
