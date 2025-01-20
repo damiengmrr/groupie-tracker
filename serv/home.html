@@ -3,21 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="serv/style.css">
     <title>Home</title>
 </head>
 <body>
     <header>
         <h1>Groupie Tracker</h1>
-        <p>Discover your favorite artists and their upcoming events!</p>
-       <!-- <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#artists">Artists</a></li>
-                <li><a href="#locations">Locations</a></li>
-                <li><a href="#dates">Dates</a></li>
-            </ul>
-        </nav> -->
+        <p>Découvrez vos artistes préférés et leurs événements à venir !</p>
     </header>
     <main>
         <section id="home">
@@ -36,7 +28,7 @@
                 {{ range .Lists}}
                 <div class="artist">
                     <h3>{{.Name}}</h3>
-                    <p>Formed in {{.CreationDate}}</p>
+                    <p>{{.CreationDate}}</p>
                     <button>
                         <img src="{{.Image}}" alt="{{.Name}}">
                     </button>
@@ -47,12 +39,12 @@
 
         <section id="locations">
             <h2>Concert Locations</h2>
-            <!-- Add content for locations here -->
+            <p>soon...</p>
         </section>
 
         <section id="dates">
             <h2>Upcoming Dates</h2>
-            <!-- Add content for dates here -->
+            <p>soon...</p>
         </section>
     </main>
 <!--
@@ -67,6 +59,7 @@
     </div> -->
     <footer>
         <p>&copy; 2024 Groupie Tracker</p>
+        <p>By. Anthony, Damien and Guilhem</p>
     </footer>
 </body>
 </html>

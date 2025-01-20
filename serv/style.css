@@ -48,10 +48,9 @@ nav a {
 }
 
 nav a:hover {
-    color: var(--secondary-color); /* Change the color of the link */
+    color: var(--secondary-color);
 }
 
-/* Main Content */
 main {
     padding-top: calc(var(--header-height) + 2rem);
     max-width: 1200px;
@@ -71,7 +70,6 @@ section h2 {
     margin-bottom: 1rem;
 }
 
-/* Home Section */
 #home {
     text-align: center;
     padding: 2rem;
@@ -86,7 +84,6 @@ section h2 {
     font-size: 1.2rem;
 }
 
-/* Artists Section */
 .grille {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -135,4 +132,18 @@ footer {
     text-align: center;
     padding: 1.5rem;
     margin-top: 2rem;
+}
+
+.button {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #c0392b;
 }
