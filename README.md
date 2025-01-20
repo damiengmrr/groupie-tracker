@@ -2,7 +2,9 @@
 
 Bienvenue sur Groupie Tracker, une application passionnante qui connecte les fans à leurs artistes préférés en vous fournissant des informations détaillées sur les groupes et leur activité musicale.
 
-🌟 Table des matières
+🌟 Table des matières : 
+
+
 	1.	Aperçu du projet
 	2.	Fonctionnalités
 	3.	Installation
@@ -11,12 +13,14 @@ Bienvenue sur Groupie Tracker, une application passionnante qui connecte les fan
 	6.	Contributions
 	7.	Auteurs
 	8.	Licence
+ 
 
 🎯 Aperçu du projet
 
 Le Groupie Tracker est une application web simple et intuitive qui utilise une API externe pour collecter et afficher des données sur les artistes musicaux, leurs albums, concerts et bien plus encore. Idéal pour les mélomanes et développeurs souhaitant explorer un projet éducatif basé sur une API RESTful.
 
-🚀 Fonctionnalités
+🚀 Fonctionnalités :
+
 	•	Explorer des artistes : Recherchez vos groupes ou artistes préférés.
 	•	Visualiser des informations détaillées : Bio, concerts, albums, etc.
 	•	Interface dynamique : Navigation fluide grâce à une conception intuitive.
@@ -27,44 +31,51 @@ Le Groupie Tracker est une application web simple et intuitive qui utilise une A
 Pré-requis
 
 Assurez-vous d’avoir les outils suivants installés :
+
 	•	Go (v1.18 ou plus récent)
 	•	Un terminal ou IDE avec Git
 
 Étapes
-	1.	Clonez le dépôt :
+	1.	Clonez le dépôt 
+ 
 
 git clone https://github.com/damiengmrr/groupie-tracker.git
-cd groupie-tracker
 
 
-	2.	Installez les dépendances :
+cd groupie-tracker 
 
-go mod tidy
+2. 	Installez les dépendances :
 
-
-	3.	Lancez l’application :
-
-go run main.go
+		• go mod tidy
 
 
-	4.	Accédez à l’application :
+3.	Lancez l’application :
+
+		•go run main.go
+
+
+4.	Accédez à l’application :
 Ouvrez votre navigateur et rendez-vous sur :
-http://localhost:8080
+
+  		• http://localhost:8080
 
 🧑‍💻 Utilisation
 
 Navigation principale :
+
 	1.	Page d’accueil : Découvrez les artistes les plus populaires.
 	2.	Recherche : Utilisez la barre de recherche pour trouver des artistes spécifiques.
 	3.	Détails : Cliquez sur un artiste pour voir des informations détaillées comme les dates de concerts, albums, etc.
 
-🛠 Technologies utilisées
+🛠 Technologies utilisées :
+
 	•	Langage : Go
 	•	Framework Frontend : HTML/CSS/JavaScript
 	•	API RESTful : Données récupérées via une API publique
 	•	Serveur local : Hébergement en local avec le serveur web Go
 
-✨ Auteurs
+✨ Auteurs :
+
 	• Damien
     • Anthony
     • Guilhem
