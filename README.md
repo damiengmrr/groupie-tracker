@@ -1,5 +1,3 @@
-Voici un exemple de README.md complet, structuré et esthétique pour le projet Groupie Tracker. Il inclut des sections claires, des emojis pour le rendre visuellement attractif, et un style professionnel.
-
 🎶 Groupie Tracker
 
 Bienvenue sur Groupie Tracker, une application passionnante qui connecte les fans à leurs artistes préférés en vous fournissant des informations détaillées sur les groupes et leur activité musicale.
