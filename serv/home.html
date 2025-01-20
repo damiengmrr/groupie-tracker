@@ -19,8 +19,17 @@
 </head>
 <body>
 
+    <form action="/home" method="post">
+        <label for="filtre-checkbox">
+            <input type="checkbox" id="filtre-checkbox" name="filtre"> Filtrage
+        </label>
+    </form>
+
     <label for="filter-name">Nom</label>
     <input type="text" id="filter-name" class="sidebar-input" placeholder="Rechercher..." />
+
+    <button id="sort-asc" onclick="sortByDate('asc')">Trier par date (ancien au récent)</button>
+    <button id="sort-desc" onclick="sortByDate('desc')">Trier par date (récent au ancien)</button>
 
     <p class="no-results">Aucun résultat trouvé.</p>
 
@@ -65,6 +74,23 @@
         }
 
         filterName.addEventListener('input', applyFilter);
+        
+        function sortByDate(order = 'asc') {
+            const sortedItems = Array.from(items).sort((a, b) => {
+                const dateA = new Date(a.getAttribute('data-creationdate'));
+                const dateB = new Date(b.getAttribute('data-creationdate'));
+
+                if (order === 'asc') {
+                    return dateA - dateB;
+                } else {
+                    return dateB - dateA;
+                }
+            });
+
+            const grid = document.querySelector('.grille');
+            grid.innerHTML = '';
+            sortedItems.forEach(item => grid.appendChild(item));
+        }
     </script>
 
 </body>
