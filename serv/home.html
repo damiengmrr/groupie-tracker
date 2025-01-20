@@ -3,9 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="serv/style.css">
+    <title>Home</title>
 </head>
 <body>
+    <header>
+        <h1>Groupie Tracker</h1>
+        <p>Découvrez vos artistes préférés et leurs événements à venir !</p>
+    </header>
+    <main>
+        <section id="home">
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#artists">Artists</a></li>
+                    <li><a href="#locations">Locations</a></li>
+                    <li><a href="#dates">Dates</a></li>
+                </ul>
+            </nav>
+        </section>
+        <form method="POST" action= "/input">
+            <label for = "LettreInput">
+            <input name = "RechercheArtiste" type="text" required id="ArtistInput">
+            <button type="submit">Rechercher</button>
+        </form>
+        <section id="artists">
+            <h2>Featured Artists</h2>
+            <div class="grille">
+                {{ range .Lists}}
+                <div class="artist">
+                    <form action="/artists" method="get">
+                        <button name = "id" id = "artists-button" value = "{{.Id}}" type="submit"> Voir</button>
+                        </form>
+                    <h3>{{.Name}}</h3>
+                    <p>{{.CreationDate}}</p>
+                    <button>
+                        <img src="{{.Image}}" alt="{{.Name}}">
+                    </button>
+                </div>
+                {{ end}}
+            </div>
+        </section>
+
+        <section id="locations">
+            <h2>Concert Locations</h2>
+            <p>soon...</p>
+        </section>
+
+        <section id="dates">
+            <h2>Upcoming Dates</h2>
+            <p>soon...</p>
+        </section>
+    </main>
+
     <!-- <form action="/home" method="post">
         <label for="agree">
             <input type="checkbox" id="filtre-checkbox" name="filtre">
@@ -14,21 +64,14 @@
     </form> -->
 
 
-    <form method="POST" action= "/input">
-        <label for = "LettreInput">
-        <input name = "RechercheArtiste" type="text" required id="ArtistInput">
-        <button type="submit">Rechercher</button>
-    </form>
+
 
     <div class = "grille">
     {{ range .Lists}}
     <h1>{{.Name}}</h1>
     <h2>{{.CreationDate}}</h2>
-    <form action="/artists" method="get">
-    <button name = "id" id = "artists-button" value = "{{.Id}}" type="submit"> Voir</button>
-        <img src="{{.Image}}" alt="Artist Image">
-    </button>
-    </form>
+
     {{ end}}
+    </div>
 </body>
 </html>
