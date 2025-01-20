@@ -8,7 +8,7 @@ import (
 	"net/http"
 	"os"
 	"strconv"
-	"strings"
+	// "strings"
 	"text/template"
 	// "time"
 )
@@ -61,15 +61,15 @@ func Artists(w http.ResponseWriter, r *http.Request) {
 }
 
 
-func applyFilter(items []Item, filter string) []Item {
-	var filteredItems []Item
-	filter = strings.ToLower(filter)
+// func applyFilter(items []Item, filter string) []Item {
+// 	var filteredItems []Item
+// 	filter = strings.ToLower(filter)
 
-	for _, item := range items {
-		if strings.Contains(strings.ToLower(item.Title), filter) {
-			filteredItems = append(filteredItems, item)
-		}
-	}
+// 	for _, item := range items {
+// 		if strings.Contains(strings.ToLower(item.Title), filter) {
+// 			filteredItems = append(filteredItems, item)
+// 		}
+// 	}
 
-	return filteredItems
-}
+// 	return filteredItems
+// }
