@@ -35,6 +35,7 @@
                     <form action="/artists" method="get">
                         <button name = "id" id = "artists-button" value = "{{.Id}}" type="submit"> Voir</button>
                         </form>
+                        <div data-title = "{{ .Name }}">
                     <h3>{{.Name}}</h3>
                     <p>{{.CreationDate}}</p>
                     <button>

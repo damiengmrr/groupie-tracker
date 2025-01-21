@@ -33,5 +33,3 @@ type locations struct {
 	Country []string
 	ConcertCityLocations []string
 }
-
-
