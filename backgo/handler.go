@@ -90,22 +90,3 @@ func SearchBar(w http.ResponseWriter, r *http.Request){
 		}
 	}
 }
-var GroupList List
-    json.Unmarshal(body, &GroupList.Lists)
-    queryYear := r.URL.Query().Get("year")
-    queryYearAlbum := r.URL.Query().Get("yearAlbum")
-    queryMembers := r.URL.Query().Get("members")
-
-    var filteredArtists []Artiste
-    for , artist := range GroupList.Lists {
-        searchQuery := r.URL.Query().Get("query")
-        if searchQuery != "" {
-            searchQuery = strings.ToLower(searchQuery)
-            tempFilteredArtists := []Artiste{}
-            for , artist := range filteredArtists {
-                if strings.Contains(strings.ToLower(artist.Name), searchQuery) {
-                    tempFilteredArtists = append(tempFilteredArtists, artist)
-                }
-            }
-            filteredArtists = tempFilteredArtists
-        }
