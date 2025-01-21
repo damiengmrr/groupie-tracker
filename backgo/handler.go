@@ -8,7 +8,7 @@ import (
 	"net/http"
 	"os"
 	"strconv"
-	"strings"
+	// "strings"
 	"text/template"
 	// "time"
 )
@@ -60,33 +60,33 @@ func Artists(w http.ResponseWriter, r *http.Request) {
 	t.Execute(w, GroupList[id-1])
 }
 
-func SearchBar(w http.ResponseWriter, r *http.Request){
-	t, err := template.ParseFiles("./serv/home.html")
-	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-		return
-	}
-	response, err := http.Get("https://groupietrackers.herokuapp.com/api/artists")
-	if err != nil {
-		fmt.Print(err.Error())
-		os.Exit(1)
-	}
+// func SearchBar(w http.ResponseWriter, r *http.Request){
+// 	t, err := template.ParseFiles("./serv/home.html")
+// 	if err != nil {
+// 		http.Error(w, err.Error(), http.StatusInternalServerError)
+// 		return
+// 	}
+// 	response, err := http.Get("https://groupietrackers.herokuapp.com/api/artists")
+// 	if err != nil {
+// 		fmt.Print(err.Error())
+// 		os.Exit(1)
+// 	}
 
-	responseData, err := ioutil.ReadAll(response.Body)
-	if err != nil {
-		log.Fatal(err)
-	}
+// 	responseData, err := ioutil.ReadAll(response.Body)
+// 	if err != nil {
+// 		log.Fatal(err)
+// 	}
 	
-	SearchValue := r.FormValue("RechercheArtiste")
+// 	SearchValue := r.FormValue("RechercheArtiste")
 	
-	var GroupList []artists
-	json.Unmarshal(responseData, &GroupList)
+// 	var GroupList []artists
+// 	json.Unmarshal(responseData, &GroupList)
 	
 
-	for _, artist := range GroupList {
-		if strings.Contains(strings.ToLower(artist.Name), strings.ToLower(SearchValue)) {
-			...
-			fmt.Print("GG")
-		}
-	}
-}
+// 	for _, artist := range GroupList {
+// 		if strings.Contains(strings.ToLower(artist.Name), strings.ToLower(SearchValue)) {
+// 			...
+// 			fmt.Print("GG")
+// 		}
+// 	}
+// }
