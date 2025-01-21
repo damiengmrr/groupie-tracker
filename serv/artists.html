@@ -3,9 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="serv/style.css">
     <title>Document</title>
 </head>
 <body>
+    <section id="artists">
+        <h2>Artists</h2>
+        <div id="artist-list">
+            {{range .Lists}}
+                <div class="artist-item">
+                    <h3 class="artist-name">{{.Name}}</h3>
+                    <img src="{{.Image}}" alt="{{.Name}}" />
+              
+                </div>
+            {{end}}
+        </div>
+    </section>
+    
     
 </body>
 </html>

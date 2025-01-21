@@ -3,17 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="serv/style.css">
+    <title>Home</title>
 </head>
 <body>
-   <div class = "grille">
-    {{ range .Lists}}
-    <h1>{{.Name}}</h1>
-    <h2>{{.CreationDate}}</h2>
-    <button style="border: none; padding: 0; background: none;">
-        <img src="{{.Image}}" alt="Artist Image">
-    </button>
-    {{ end}}
-    </div>
+    <header>
+        <h1>Groupie Tracker</h1>
+        <p>Découvrez vos artistes préférés et leurs événements à venir !</p>
+        <!-- Barre de recherche -->
+        <form action="/" method="get">
+            <input type="text" id="search" name="search" placeholder="Rechercher un artiste" />
+            <button type="submit">Rechercher</button>
+        </form>
+        <!-- Barre de recherche -->
+    </header>
+    <main>
+        <section id="home">
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#artists">Artists</a></li>
+                    <li><a href="#locations">Locations</a></li>
+                    <li><a href="#dates">Dates</a></li>
+                </ul>
+            </nav>
+        </section>
+        <section id="artists">
+            <h2>Featured Artists</h2>
+            <div class="grille">
+                {{ range .Lists}}
+                <div class="artist">
+                    <h3>{{.Name}}</h3>
+                    <p>{{.CreationDate}}</p>
+                    <button>
+                        <img src="{{.Image}}" alt="{{.Name}}">
+                    </button>
+                </div>
+                {{ end}}
+            </div>
+        </section>
+
+        <section id="locations">
+            <h2>Concert Locations</h2>
+            <p>soon...</p>
+        </section>
+
+        <section id="dates">
+            <h2>Upcoming Dates</h2>
+            <p>soon...</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Groupie Tracker</p>
+        <p>By. Anthony, Damien and Guilhem</p>
+    </footer>
 </body>
 </html>
+
