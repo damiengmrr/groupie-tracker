@@ -7,12 +7,19 @@
     <title>Document</title>
 </head>
 <body>
-    <div class = "grille">
-        <h1>{{.Name}}</h1>
-        <h1>{{.Members}}</h1>
-        <h1>{{.CreationDate}}</h1>
-        <h1>{{.FirstAlbum}}</h1>
-    </div>
-    <img src="{{.Image}}">
+    <section id="artists">
+        <h2>Artists</h2>
+        <div id="artist-list">
+            {{range .Lists}}
+                <div class="artist-item">
+                    <h3 class="artist-name">{{.Name}}</h3>
+                    <img src="{{.Image}}" alt="{{.Name}}" />
+              
+                </div>
+            {{end}}
+        </div>
+    </section>
+    
+    
 </body>
 </html>

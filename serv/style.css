@@ -147,3 +147,21 @@ footer {
 .button:hover {
     background-color: #c0392b;
 }
+/* Style pour la barre de recherche */
+header div {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+input#search {
+    padding: 0.5rem;
+    font-size: 1rem;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input#search:focus {
+    border-color: var(--secondary-color);
+}
