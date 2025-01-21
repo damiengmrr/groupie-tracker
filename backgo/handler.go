@@ -53,7 +53,6 @@ func Artists(w http.ResponseWriter, r *http.Request){
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
-	t.Execute(w,nil)
 	response, err := http.Get("https://groupietrackers.herokuapp.com/api/artists")
 	if err != nil {
 		fmt.Print(err.Error())
@@ -64,6 +63,7 @@ func Artists(w http.ResponseWriter, r *http.Request){
     if err != nil {
         log.Fatal(err)
     }
+
 	var GroupList []artists
 	json.Unmarshal(responseData, &GroupList)
 	
