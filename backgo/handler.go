@@ -22,7 +22,6 @@ func Home(w http.ResponseWriter, r *http.Request){
         os.Exit(1)
     }
 
-
     responseData, err := ioutil.ReadAll(response.Body)
     if err != nil {
         log.Fatal(err)
