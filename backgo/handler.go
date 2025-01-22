@@ -10,7 +10,6 @@ import (
 	"strconv"
 	"strings"
 	"text/template"
-	"sort"
 	// "time"
 )
 
@@ -77,15 +76,9 @@ func filterArtists(artistsList []artists, query string) []artists {
 		}
 	}
 	return filtered
+
 }
 
-func SortArtistsByDate(artistsList []artists, ascending bool) []artists {
-	// Utiliser sort.Slice pour trier
-	sort.Slice(artistsList, func(i, j int) bool {
-		if ascending {
-			return artistsList[i].CreationDate < artistsList[j].CreationDate
-		}
-		return artistsList[i].CreationDate > artistsList[j].CreationDate
-	})
-	return artistsList
+func tri_selection(){
+	
 }

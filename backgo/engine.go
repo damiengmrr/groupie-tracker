@@ -1,6 +1,5 @@
 package backgo
 
-
 type List struct {
 	Lists []artists
 }
@@ -34,4 +33,3 @@ type locations struct {
 	Country              []string
 	ConcertCityLocations []string
 }
-
