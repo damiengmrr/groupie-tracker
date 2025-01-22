@@ -53,6 +53,7 @@ func Artists(w http.ResponseWriter, r *http.Request){
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
+
 	response, err := http.Get("https://groupietrackers.herokuapp.com/api/artists")
 	if err != nil {
 		fmt.Print(err.Error())
