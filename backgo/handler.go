@@ -8,6 +8,7 @@ import (
 	"net/http"
 	"os"
 	"strconv"
+	"strings"
 	"text/template"
 	// "time"
 )
@@ -69,4 +70,14 @@ func Artists(w http.ResponseWriter, r *http.Request){
 	
 	id, _ := strconv.Atoi(r.FormValue("id"))
 	t.Execute(w,GroupList[id-1])
+}
+
+func filterArtists(artistsList []artists, query string) []artists {
+	var filtered []artists
+	for _, artist := range artistsList {
+		if strings.Contains(strings.ToLower(artist.Name), strings.ToLower(query)) {
+			filtered = append(filtered, artist)
+		}
+	}
+	return filtered
 }

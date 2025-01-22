@@ -1,16 +1,6 @@
 package backgo
 
-import (
-	/*"encoding/json"
-	"fmt"
-	"io/ioutil"
-	"log"
-	"net/http"*/
-	"strings"
-	//"text/template"
-)
 
-// Structure des données des artistes
 type List struct {
 	Lists []artists
 }
@@ -45,13 +35,3 @@ type locations struct {
 	ConcertCityLocations []string
 }
 
-// filtre artistes par nom
-func filterArtists(artistsList []artists, query string) []artists {
-	var filtered []artists
-	for _, artist := range artistsList {
-		if strings.Contains(strings.ToLower(artist.Name), strings.ToLower(query)) {
-			filtered = append(filtered, artist)
-		}
-	}
-	return filtered
-}
