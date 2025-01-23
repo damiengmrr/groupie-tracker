@@ -39,6 +39,9 @@ func Home(w http.ResponseWriter, r *http.Request) {
 	if searchQuery != "" {
 		GroupList.Lists = filterArtists(GroupList.Lists, searchQuery)
 	}
+	if sortOrder != "" {
+        GroupList.Lists = tri_selection(GroupList.Lists, sortOrder)
+    }
 
 	t.Execute(w, GroupList)
 }

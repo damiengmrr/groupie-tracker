@@ -16,9 +16,15 @@
             <button type="submit">Rechercher</button>
             <h1>Filtrer les artistes par date de création</h1>
         </form>
-        <form action="/" method="post">
-            <button type = "submit" onclick="tri_selection()">Trier par date croissante</button>
-        </form>
+        <div class="sort-buttons">
+            <form action="/" method="get" style="display: inline;">
+                <input type="hidden" name="sort" value="croi" />
+                <button type="submit" class="button">Trier par date (Croissant)</button>
+            </form>
+            <form action="/" method="get" style="display: inline;">
+                <input type="hidden" name="sort" value="dcroi" />
+                <button type="submit" class="button">Trier par date (Décroissant)</button>
+            </form>
     </header>
     <main>
         <section id="home">
