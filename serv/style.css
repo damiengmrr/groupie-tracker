@@ -1,0 +1,167 @@
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #e74c3c;
+    --text-color: #333;
+    --bg-color: #f5f6fa;
+    --header-height: 70px;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+}
+
+header {
+    text-align: center;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1rem 2rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    margin-bottom: 0.5rem;
+    font-size: 2rem;
+}
+
+nav ul {
+    list-style: none;
+    text-align: center;
+    display: flex;
+    gap: 2rem;
+    align-content: center;
+}
+
+nav a {
+    color: var(--primary-color);
+    text-align: center;
+    text-decoration: none; 
+    font-weight: 500;
+    transition: color 0.3s ease;
+    align-content: center;
+}
+
+nav a:hover {
+    color: var(--secondary-color);
+}
+
+main {
+    padding-top: calc(var(--header-height) + 2rem);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+section {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+section h2 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+#home {
+    text-align: center;
+    padding: 2rem;
+}
+
+#home h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+#home p {
+    font-size: 1.2rem;
+}
+
+.grille {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.artist {
+    background-color: white;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.artist:hover {
+    transform: translateY(-5px);
+}
+
+.artist h3 {
+    padding: 1rem;
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.artist p {
+    padding: 0.5rem 1rem;
+}
+
+.artist button {
+    width: 100%;
+    border: none;
+    padding: 0;
+    background: none;
+    cursor: pointer;
+}
+
+.artist img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+footer {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 2rem;
+}
+
+.button {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #c0392b;
+}
+/* Style pour la barre de recherche */
+header div {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+input#search {
+    padding: 0.5rem;
+    font-size: 1rem;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input#search:focus {
+    border-color: var(--secondary-color);
+}

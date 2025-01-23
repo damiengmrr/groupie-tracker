@@ -9,6 +9,7 @@ const port = ":8080"
 
 func Web() {
 	http.HandleFunc("/" , Home)
+	http.HandleFunc("/artists" , Artists)
 
 	fs := http.FileServer(http.Dir("serv/"))
 	http.Handle("/serv/", http.StripPrefix("/serv/", fs))
