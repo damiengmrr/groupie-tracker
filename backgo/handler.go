@@ -21,6 +21,7 @@ func Home(w http.ResponseWriter, r *http.Request) {
 	}
 
 	searchQuery := r.URL.Query().Get("search")
+	sortOrder := r.URL.Query().Get("sort")
 
 	response, err := http.Get("https://groupietrackers.herokuapp.com/api/artists")
 	if err != nil {
