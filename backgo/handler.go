@@ -79,6 +79,33 @@ func filterArtists(artistsList []artists, query string) []artists {
 
 }
 
-func tri_selection(){
-	
+func tri_selection() {
+	response, err := http.Get("https://groupietrackers.herokuapp.com/api/artists")
+	if err != nil {
+		fmt.Print(err.Error())
+		os.Exit(1)
+	}
+
+	responseData, err := ioutil.ReadAll(response.Body)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	var GroupList []artists
+	json.Unmarshal(responseData, &GroupList)
+
+	for i := range GroupList {
+		mini := i 
+		for j := i + 1; j < len(GroupList); j++ {
+			if GroupList[j].CreationDate < GroupList[mini].CreationDate {
+				mini = j
+			}
+		}
+		if mini != i {
+			GroupList[i], GroupList[mini] = GroupList[mini], GroupList[i]
+		tmp := GroupList[i]
+		GroupList[i] = GroupList[mini]
+		GroupList[mini] = tmp
+		}
+	}
 }
