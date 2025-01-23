@@ -15,16 +15,16 @@
             <input type="text" id="search" name="search" placeholder="Rechercher un artiste" />
             <button type="submit">Reset</button>
         </form>
-         <!-- Boutons de tri -->
-    <div class="sort-buttons">
-        <form action="/" method="get" style="display: inline;">
-            <input type="hidden" name="sort" value="croi" />
-            <button type="submit" class="button">Trier par date (Croissant)</button>
-        </form>
-        <form action="/" method="get" style="display: inline;">
-            <input type="hidden" name="sort" value="dcroi" />
-            <button type="submit" class="button">Trier par date (Décroissant)</button>
-        </form>
+        <div class="filter-container">
+            <!-- Bouton filtre -->
+            <button id="filter-button">Filtrer</button>
+    
+            <!-- Menu déroulant -->
+            <div id="filter-options" class="dropdown-menu" style="display: none;">
+                <button class="filter-option" onclick="filterArtists('asc')">date de creation (croissant)</button>
+                <button class="filter-option" onclick="filterArtists('desc')">date de creation (décroissant)</button>
+            </div>
+        </div>
     </div>
     </header>
     <main>
@@ -48,7 +48,7 @@
                         <p></p>
         
                         <!-- Bouton pour afficher les membres -->
-                        <button class="description-button" onclick="toggleMembers('{{.Id}}')">Afficher les membres</button>
+                        <button class="description-button" onclick="toggleMembers('{{.Id}}')">Voir les membres</button>
         
                         <!-- Zone où les membres seront affichés -->
                         <div id="members-{{.Id}}" class="members-list" style="display: none;">
@@ -90,4 +90,30 @@
             membersDiv.style.display = "none";
         }
     }
+    // Afficher ou masquer le menu déroulant
+    document.getElementById('filter-button').addEventListener('click', () => {
+        const menu = document.getElementById('filter-options');
+        menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
+    });
+
+    // Fonction pour filtrer les artiste par dade de creation
+    function filterArtists(order) {
+        
+        const artistList = document.getElementById('artist-list');
+        const artists = Array.from(artistList.children);
+
+        // Trier les artistes
+        artists.sort((a, b) => {
+            const dateA = parseInt(a.querySelector('h3').textContent.match(/\((\d+)\)/)[1]);
+            const dateB = parseInt(b.querySelector('h3').textContent.match(/\((\d+)\)/)[1]);
+            return order === 'asc' ? dateA - dateB : dateB - dateA;
+        });
+
+        // Réinsérer les artistes triés dans la liste
+        artists.forEach(artist => artistList.appendChild(artist));
+
+        // Cacher le menu déroulant après la sélection
+        document.getElementById('filter-options').style.display = 'none';
+    }
 </script>
+

@@ -45,12 +45,21 @@ type locations struct {
 	ConcertCityLocations []string
 }
 
-// filtre artistes par nom
 func filterArtists(artistsList []artists, query string) []artists {
 	var filtered []artists
 	for _, artist := range artistsList {
+		// Vérifier si le nom du groupe correspond a la requête
 		if strings.Contains(strings.ToLower(artist.Name), strings.ToLower(query)) {
 			filtered = append(filtered, artist)
+			continue
+		}
+
+		// Vérifier si un membre du groupe correspond a la requête
+		for _, member := range artist.Members {
+			if strings.Contains(strings.ToLower(member), strings.ToLower(query)) {
+				filtered = append(filtered, artist)
+				break
+			}
 		}
 	}
 	return filtered
@@ -69,4 +78,3 @@ func sortArtistsByCreationDate(artistsList []artists, order string) []artists {
 	}
 	return artistsList
 }
-
