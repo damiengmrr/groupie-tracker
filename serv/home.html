@@ -13,18 +13,19 @@
         <p>Découvrez vos artistes préférés et leurs événements à venir !</p>
         <form action="/" method="get">
             <input type="text" id="search" name="search" placeholder="Rechercher un artiste" />
-            <button type="submit">Rechercher</button>
-            <h1>Filtrer les artistes par date de création</h1>
+            <button type="submit">Reset</button>
         </form>
-        <div class="sort-buttons">
-            <form action="/" method="get" style="display: inline;">
-                <input type="hidden" name="sort" value="croi" />
-                <button type="submit" class="button">Trier par date (Croissant)</button>
-            </form>
-            <form action="/" method="get" style="display: inline;">
-                <input type="hidden" name="sort" value="dcroi" />
-                <button type="submit" class="button">Trier par date (Décroissant)</button>
-            </form>
+         <!-- Boutons de tri -->
+    <div class="sort-buttons">
+        <form action="/" method="get" style="display: inline;">
+            <input type="hidden" name="sort" value="croi" />
+            <button type="submit" class="button">Trier par date (Croissant)</button>
+        </form>
+        <form action="/" method="get" style="display: inline;">
+            <input type="hidden" name="sort" value="dcroi" />
+            <button type="submit" class="button">Trier par date (Décroissant)</button>
+        </form>
+        <!-- Barre de recherche -->
     </header>
     <main>
         <section id="home">
@@ -42,9 +43,6 @@
             <div class="grille">
                 {{ range .Lists}}
                 <div class="artist">
-                    <form action="/artists" method="get">
-                        <button name = "id" id = "artists-button" value = "{{.Id}}" type="submit"> Voir</button>
-                        </form>
                     <h3>{{.Name}}</h3>
                     <p>{{.CreationDate}}</p>
                     <button>
@@ -54,12 +52,12 @@
                 {{ end}}
             </div>
         </section>
-
+        
         <section id="locations">
             <h2>Concert Locations</h2>
             <p>soon...</p>
         </section>
-
+   <!-- date -->
         <section id="dates">
             <h2>Upcoming Dates</h2>
             <p>soon...</p>
@@ -72,3 +70,4 @@
     </footer>
 </body>
 </html>
+
