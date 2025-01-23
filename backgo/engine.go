@@ -69,3 +69,4 @@ func sortArtistsByCreationDate(artistsList []artists, order string) []artists {
 	}
 	return artistsList
 }
+

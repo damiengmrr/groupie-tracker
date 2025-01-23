@@ -182,5 +182,28 @@ input#search:focus {
 }
 
 .sort-buttons .button:hover {
-    background-color: #c0392b;
+    background-color: #c0392b; /* couleur bouton de filtre */
+}
+
+.members-list {
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.description-button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    margin-top: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.description-button:hover {
+    background-color: var(--secondary-color);
 }

@@ -39,20 +39,30 @@
             </nav>
         </section>
         <section id="artists">
-            <h2>Featured Artists</h2>
-            <div class="grille">
-                {{ range .Lists}}
-                <div class="artist">
-                    <h3>{{.Name}}</h3>
-                    <p>{{.CreationDate}}</p>
-                    <button>
-                        <img src="{{.Image}}" alt="{{.Name}}">
-                    </button>
-                </div>
-                {{ end}}
+            <h2>Artists</h2>
+            <div id="artist-list">
+                {{range .Lists}}
+                    <div class="artist-item">
+                        <h3>{{.Name}} ({{.CreationDate}})</h3>
+                        <img src="{{.Image}}" alt="{{.Name}}" />
+                        <p></p>
+        
+                        <!-- Bouton pour afficher les membres -->
+                        <button class="description-button" onclick="toggleMembers('{{.Id}}')">Afficher les membres</button>
+        
+                        <!-- Zone où les membres seront affichés -->
+                        <div id="members-{{.Id}}" class="members-list" style="display: none;">
+                            <ul>
+                                {{range .Members}}
+                                    <li>{{.}}</li>
+                                {{end}}
+                            </ul>
+                        </div>
+                    </div>
+                {{end}}
             </div>
         </section>
-   <!-- LOC -->
+        
         <section id="locations">
             <h2>Concert Locations</h2>
             <p>soon...</p>
@@ -70,4 +80,14 @@
     </footer>
 </body>
 </html>
-
+<!-- fonction pour afficher les membres -->
+<script> 
+    function toggleMembers(id) {
+        const membersDiv = document.getElementById(`members-${id}`);
+        if (membersDiv.style.display === "none") {
+            membersDiv.style.display = "block";
+        } else {
+            membersDiv.style.display = "none";
+        }
+    }
+</script>
