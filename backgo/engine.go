@@ -8,9 +8,9 @@ import (
 	"net/http"*/
 	"strings"
 	//"text/template"
+	"sort"
 )
 
-// Structure des données des artistes
 type List struct {
 	Lists []artists
 }
@@ -54,4 +54,18 @@ func filterArtists(artistsList []artists, query string) []artists {
 		}
 	}
 	return filtered
+}
+
+// trier les artistes par date de création
+func sortArtistsByCreationDate(artistsList []artists, order string) []artists {
+	if order == "croi" {
+		sort.Slice(artistsList, func(i, j int) bool {
+			return artistsList[i].CreationDate < artistsList[j].CreationDate
+		})
+	} else if order == "dcroi" {
+		sort.Slice(artistsList, func(i, j int) bool {
+			return artistsList[i].CreationDate > artistsList[j].CreationDate
+		})
+	}
+	return artistsList
 }

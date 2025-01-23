@@ -13,9 +13,19 @@
         <!-- Barre de recherche -->
         <form action="/" method="get">
             <input type="text" id="search" name="search" placeholder="Rechercher un artiste" />
-            <button type="submit">Rechercher</button>
+            <button type="submit">Reset</button>
         </form>
-        <!-- Barre de recherche -->
+         <!-- Boutons de tri -->
+    <div class="sort-buttons">
+        <form action="/" method="get" style="display: inline;">
+            <input type="hidden" name="sort" value="croi" />
+            <button type="submit" class="button">Trier par date (Croissant)</button>
+        </form>
+        <form action="/" method="get" style="display: inline;">
+            <input type="hidden" name="sort" value="dcroi" />
+            <button type="submit" class="button">Trier par date (Décroissant)</button>
+        </form>
+    </div>
     </header>
     <main>
         <section id="home">
@@ -42,12 +52,12 @@
                 {{ end}}
             </div>
         </section>
-
+   <!-- LOC -->
         <section id="locations">
             <h2>Concert Locations</h2>
             <p>soon...</p>
         </section>
-
+   <!-- date -->
         <section id="dates">
             <h2>Upcoming Dates</h2>
             <p>soon...</p>
