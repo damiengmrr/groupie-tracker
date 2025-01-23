@@ -41,8 +41,8 @@ func Home(w http.ResponseWriter, r *http.Request) {
 		GroupList.Lists = filterArtists(GroupList.Lists, searchQuery)
 	}
 	if sortOrder != "" {
-        GroupList.Lists = tri_selection(GroupList.Lists, sortOrder)
-    }
+		GroupList.Lists = tri_selection(GroupList.Lists, sortOrder)
+	}
 
 	t.Execute(w, GroupList)
 }
@@ -83,7 +83,7 @@ func filterArtists(artistsList []artists, query string) []artists {
 
 }
 
-func tri_selection() {
+func tri_selection(artistsList []artists, order string) []artists {
 	response, err := http.Get("https://groupietrackers.herokuapp.com/api/artists")
 	if err != nil {
 		fmt.Print(err.Error())
@@ -99,7 +99,7 @@ func tri_selection() {
 	json.Unmarshal(responseData, &GroupList)
 
 	for i := range GroupList {
-		mini := i 
+		mini := i
 		for j := i + 1; j < len(GroupList); j++ {
 			if GroupList[j].CreationDate < GroupList[mini].CreationDate {
 				mini = j
@@ -107,9 +107,10 @@ func tri_selection() {
 		}
 		if mini != i {
 			GroupList[i], GroupList[mini] = GroupList[mini], GroupList[i]
-		tmp := GroupList[i]
-		GroupList[i] = GroupList[mini]
-		GroupList[mini] = tmp
+			tmp := GroupList[i]
+			GroupList[i] = GroupList[mini]
+			GroupList[mini] = tmp
 		}
 	}
+	return GroupList
 }
