@@ -45,7 +45,9 @@
                     <div class="artist-item">
                         <h3>{{.Name}} ({{.CreationDate}})</h3>
                         <img src="{{.Image}}" alt="{{.Name}}" />
-                        <p></p>
+                        <form action="/artists" method="get">
+                            <button class = "Artistbutton" name = "id" id = "artists-button" value = "{{.Id}}" type="submit"> Voir Détails</button>
+                        </form>
         
                         <!-- Bouton pour afficher les membres -->
                         <button class="description-button" onclick="toggleMembers('{{.Id}}')">Voir les membres</button>
