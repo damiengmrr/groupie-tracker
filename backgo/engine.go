@@ -1,13 +1,7 @@
 package backgo
 
 import (
-	/*"encoding/json"
-	"fmt"
-	"io/ioutil"
-	"log"
-	"net/http"*/
 	"strings"
-	//"text/template"
 	"sort"
 )
 
@@ -45,6 +39,7 @@ type locations struct {
 	ConcertCityLocations []string
 }
 
+//permet de filtrer les artistes par l'input de la barre de recherche
 func filterArtists(artistsList []artists, query string) []artists {
 	var filtered []artists
 	for _, artist := range artistsList {
@@ -65,7 +60,7 @@ func filterArtists(artistsList []artists, query string) []artists {
 	return filtered
 }
 
-// trier les artistes par date de création
+// trier les artistes par date de création ascendant ou descendant
 func sortArtistsByCreationDate(artistsList []artists, order string) []artists {
 	if order == "croi" {
 		sort.Slice(artistsList, func(i, j int) bool {

@@ -7,6 +7,7 @@ import (
 
 const port = ":8080"
 
+//Fonction web, lancement du serveur
 func Web() {
 	http.HandleFunc("/" , Home)
 	http.HandleFunc("/artists" , Artists)

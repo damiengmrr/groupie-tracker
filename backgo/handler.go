@@ -9,9 +9,9 @@ import (
 	"os"
 	"strconv"
 	"text/template"
-	// "time"
 )
 
+//Execute la page Home principale
 func Home(w http.ResponseWriter, r *http.Request) {
 	t, err := template.ParseFiles("./serv/home.html")
 	if err != nil {
@@ -19,8 +19,10 @@ func Home(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	searchQuery := r.URL.Query().Get("search") // recherche par nom
-	sortOrder := r.URL.Query().Get("sort")     // "croi" ou "dcroi"
+	// recherche par nom
+	searchQuery := r.URL.Query().Get("search")
+	// "croi" ou "dcroi" 
+	sortOrder := r.URL.Query().Get("sort")     
 
 	response, err := http.Get("https://groupietrackers.herokuapp.com/api/artists")
 	if err != nil {
@@ -49,6 +51,7 @@ func Home(w http.ResponseWriter, r *http.Request) {
 	t.Execute(w, GroupList)
 }
 
+//Execute la page artiste
 func Artists(w http.ResponseWriter, r *http.Request) {
 	t, err := template.ParseFiles("./serv/artists.html")
 	if err != nil {

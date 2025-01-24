@@ -12,11 +12,13 @@
         <h1>Groupie Tracker</h1>
         <p>Découvrez vos artistes préférés et leurs événements à venir !</p>
         <form action="/" method="get">
+            <!-- Barre de recherche par nom d'artiste et nom de groupe -->
             <input type="text" id="search" name="search" placeholder="Rechercher un artiste" />
             <button type="submit">Reset</button>
         </form>
         <div class="filter-container">
             <button id="filter-button">Filtrer</button>
+            <!-- Bouton de filtre par date de création -->
             <div id="filter-options" class="dropdown-menu" style="display: none;">
                 <button class="filter-option" onclick="filterArtists('asc')">date de creation (croissant)</button>
                 <button class="filter-option" onclick="filterArtists('desc')">date de creation (décroissant)</button>
@@ -37,6 +39,7 @@
         </section>
         <section id="artists">
             <h2>Artists</h2>
+            <!-- Permet d'afficher tout les artistes -->
             <div id="artist-list">
                 {{range .Lists}}
                     <div class="artist-item" id="artist-item">
