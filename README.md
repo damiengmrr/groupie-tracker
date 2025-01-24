@@ -10,9 +10,8 @@ Bienvenue sur Groupie Tracker, une application passionnante qui connecte les fan
 	3.	Installation
 	4.	Utilisation
 	5.	Technologies utilisées
-	6.	Contributions
-	7.	Auteurs
-	8.	Licence
+	6.	Auteurs
+	
  
 
 🎯 Aperçu du projet
