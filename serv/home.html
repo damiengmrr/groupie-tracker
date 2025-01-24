@@ -42,7 +42,7 @@
             <h2>Artists</h2>
             <div id="artist-list">
                 {{range .Lists}}
-                    <div class="artist-item">
+                    <div class="artist-item" id="artist-item">
                         <h3>{{.Name}} ({{.CreationDate}})</h3>
                         <img src="{{.Image}}" alt="{{.Name}}" />
                         <form action="/artists" method="get">

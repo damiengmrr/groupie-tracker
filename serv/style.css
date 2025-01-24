@@ -269,4 +269,10 @@ input#search:focus {
     background-color: var(--secondary-color);
     color: white;
 }
-
+#artists-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* Trois colonnes */
+    gap: 40px; /* Espace entre les colonnes */
+    width: 80%; /* Largeur de la grille */
+    margin: 20px auto; /* Centrer la grille */
+}
